@@ -1,0 +1,139 @@
+
+.home {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-subtitle,
+.hero h1,
+.hero-description {
+  color: #ffffff;
+}
+.hero-subtitle {
+  margin: 0 0 20px;
+  color: #FFF8EE;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-align: center;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.hero h1 {
+  margin: 0 0 24px;
+  font-size: 34px;
+  font-weight: 800;
+  color: #FFF8EE;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 2px 3px 7px rgba(0, 0, 0, 0.55);
+}
+.hero-description {
+  max-width: 800px;
+  color: #FFF8EE;
+  margin: 0 auto 35px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.7;
+  text-align: center;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.events-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  min-width: 145px;
+  background: #B97868;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+.events-btn:hover {
+  background: #9f5f50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 768px) {
+  .hero {
+    min-height: 650px;
+  }
+  .hero-content {
+    width: 95%;
+    padding: 30px 15px;
+  }
+  .hero-subtitle {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  .hero h1 {
+    font-size: 38px;
+  }
+  .hero-description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .book-btn {
+    padding: 12px 30px;
+    min-width: 130px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    min-height: 600px;
+  }
+  .hero-content {
+    padding: 25px 12px;
+  }
+  .hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .hero-description {
+    font-size: 15px;
+  }
+  .book-btn {
+    padding: 11px 26px;
+    font-size: 14px;
+  }
+}

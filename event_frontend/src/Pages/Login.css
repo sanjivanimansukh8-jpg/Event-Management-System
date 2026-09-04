@@ -1,0 +1,95 @@
+.login-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.login-card {
+    width: 420px;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.login-card h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    color: #222;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #d97706;
+    box-shadow: 0 0 5px rgba(217, 119, 6, 0.25);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #d97706;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.login-btn:hover {
+    background: #b45309;
+}
+
+.login-message {
+    text-align: center;
+    color: #15803d;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.account-text {
+    text-align: center;
+    margin-top: 25px;
+    color: #444;
+}
+
+.account-text a {
+    color: #b45309;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.account-text a:hover {
+    text-decoration: underline;
+}

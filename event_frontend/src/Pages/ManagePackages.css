@@ -1,0 +1,129 @@
+.manage-packages {
+    min-height: 100vh;
+    padding: 40px 60px;
+    background: #f5f7fb;
+}
+.manage-packages-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.manage-packages-header h1 {
+    margin: 0;
+    color: #222;
+    font-size: 32px;
+}
+.add-package-btn {
+    background: #6c4ab6;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-package-btn:hover {
+    background: #563696;
+}
+.packages-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.package-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.package-card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #6c4ab6;
+    font-size: 25px;
+}
+.package-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+}
+.package-people {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.package-actions {
+    display: flex;
+    gap: 10px;
+}
+.edit-package-btn,
+.delete-package-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.edit-package-btn {
+    background: #e8defa;
+    color: #5b3a99;
+}
+.edit-package-btn:hover {
+    background: #d8c7f3;
+}
+.delete-package-btn {
+    background: #ffe0e0;
+    color: #d32f2f;
+}
+.delete-package-btn:hover {
+    background: #ffcaca;
+}
+.no-packages {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+    margin-top: 50px;
+}
+@media (max-width: 900px) {
+    .packages-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .manage-packages {
+        padding: 30px;
+    }
+}
+@media (max-width: 600px) {
+    .packages-container {
+        grid-template-columns: 1fr;
+    }
+    .manage-packages {
+        padding: 20px;
+    }
+    .manage-packages-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+.per-person {
+    font-size: 14px;
+    font-weight: normal;
+    color: #666;
+}
+.package-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #6c4ab6;
+    margin-bottom: 20px;
+}

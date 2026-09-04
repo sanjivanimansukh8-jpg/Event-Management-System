@@ -1,0 +1,121 @@
+.manage-events-page {
+    min-height: 100vh;
+    padding: 40px 6%;
+    background: #faf7f2;
+    color: #4f3b36;
+}
+.manage-events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.manage-events-header h1 {
+    margin: 0 0 8px;
+    font-size: 36px;
+    color: #5a3e36;
+}
+.manage-events-header p {
+    margin: 0;
+    color: #777;
+    font-size: 16px;
+}
+.add-event-btn {
+    border: none;
+    padding: 13px 22px;
+    border-radius: 7px;
+    background: #8b6f5a;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-event-btn:hover {
+    background: #6f5545;
+}
+.events-table-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+.events-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+.events-table th {
+    background: #eee5dc;
+    color: #5a3e36;
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 14px;
+}
+.events-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+    font-size: 14px;
+}
+.events-table tbody tr:hover {
+    background: #fdfaf7;
+}
+.event-actions {
+    white-space: nowrap;
+}
+.edit-btn,
+.delete-btn {
+    border: none;
+    padding: 8px 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 7px;
+}
+.edit-btn {
+    background: #e8dfd5;
+    color: #5a3e36;
+}
+.edit-btn:hover {
+    background: #d9cbbb;
+}
+.delete-btn {
+    background: #f1d8d5;
+    color: #a14d47;
+}
+.delete-btn:hover {
+    background: #e8c0bc;
+}
+.no-events {
+    text-align: center;
+    padding: 50px;
+    color: #777;
+}
+.manage-events-loading {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5a3e36;
+    font-size: 20px;
+}
+@media (max-width: 768px) {
+    .manage-events-page {
+        padding: 30px 4%;
+    }
+    .manage-events-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .manage-events-header h1 {
+        font-size: 30px;
+    }
+    .add-event-btn {
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,119 @@
+.register-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.register-card {
+    width: 420px;
+    padding: 35px 40px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(217, 119, 6, 0.18);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.register-card h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    color: #333333;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.register-subtitle {
+    text-align: center;
+    color: #777777;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #444444;
+    font-weight: 600;
+}
+
+.form-group input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    background: #fffaf5;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333333;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #d97706;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.10);
+}
+
+.register-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #d97706;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: 0.2s;
+}
+
+.register-btn:hover {
+    background: #b45309;
+}
+
+.register-message {
+    text-align: center;
+    color: #15803d;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.account-text {
+    text-align: center;
+    margin-top: 24px;
+    color: #666666;
+}
+
+.account-text a {
+    color: #b45309;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.account-text a:hover {
+    text-decoration: underline;
+}
+.register-message.success {
+    color: green;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.register-message.error {
+    color: red;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 12px;
+}

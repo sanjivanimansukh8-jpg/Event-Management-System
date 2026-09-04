@@ -1,0 +1,257 @@
+.manage-inquiries-page {
+    min-height: calc(100vh - 140px);
+    padding: 40px 6%;
+    background: #f5f7fb;
+}
+
+.manage-inquiries-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.manage-inquiries-header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #222;
+}
+
+.manage-inquiries-header p {
+    margin-top: 8px;
+    color: #666;
+    font-size: 15px;
+}
+
+.back-admin-btn {
+    border: none;
+    background: #333;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.back-admin-btn:hover {
+    background: #111;
+}
+
+.inquiries-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(420px, 1fr)
+    );
+    gap: 25px;
+}
+
+.inquiry-card {
+    background: white;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+
+    border-left: 5px solid #8e44ad;
+}
+
+.inquiry-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.inquiry-card-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 21px;
+}
+
+.inquiry-id {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+    font-size: 13px;
+}
+
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.resolved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.inquiry-section {
+    border-top: 1px solid #eee;
+    padding-top: 18px;
+    margin-top: 18px;
+}
+
+.inquiry-section h3,
+.inquiry-message h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #8e44ad;
+    font-size: 16px;
+}
+
+.inquiry-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        2,
+        1fr
+    );
+    gap: 15px;
+}
+
+.inquiry-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inquiry-grid span {
+    color: #888;
+    font-size: 12px;
+}
+
+.inquiry-grid strong {
+    color: #333;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+.inquiry-message {
+    margin-top: 20px;
+    padding: 17px;
+    background: #f8f5fb;
+    border-radius: 8px;
+}
+
+.inquiry-message p {
+    margin: 0;
+    color: #444;
+    line-height: 1.6;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+.inquiry-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #eee;
+}
+
+.status-btn,
+.delete-inquiry-btn {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-btn {
+    background: #8e44ad;
+    color: white;
+}
+
+.status-btn:hover {
+    background: #6c3483;
+}
+
+.delete-inquiry-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.delete-inquiry-btn:hover {
+    background: #c0392b;
+}
+
+.inquiry-loading {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #666;
+}
+
+.no-inquiries {
+    background: white;
+    padding: 60px 30px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(
+        0,
+        0,
+        0,
+        0.07
+    );
+}
+
+.no-inquiries h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.no-inquiries p {
+    color: #777;
+}
+@media (max-width: 768px) {
+
+    .manage-inquiries-page {
+        padding: 25px 4%;
+    }
+
+    .manage-inquiries-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .inquiries-container {
+        grid-template-columns: 1fr;
+    }
+
+    .inquiry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inquiry-card-header {
+        flex-direction: column;
+    }
+
+    .inquiry-actions {
+        flex-direction: column;
+    }
+
+    .status-btn,
+    .delete-inquiry-btn {
+        width: 100%;
+    }
+}

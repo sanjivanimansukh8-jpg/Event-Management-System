@@ -1,0 +1,124 @@
+.success-page {
+    min-height: 100vh;
+    padding: 50px 20px;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+.success-container {
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    color: #222;
+}
+.success-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #2e7d32;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    font-weight: bold;
+}
+.success-container h1 {
+    margin-bottom: 10px;
+    color: #2e7d32;
+    font-size: 30px;
+}
+.success-message {
+    color: #666;
+    margin-bottom: 30px;
+}
+.success-details {
+    text-align: left;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+}
+.success-details h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #222;
+}
+.success-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+    color: #444;
+}
+.success-row strong {
+    color: #111;
+    text-align: right;
+}
+.payment-status {
+    color: #2e7d32 !important;
+}
+.success-details hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+.success-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.success-total strong {
+    color: #e65100;
+    font-size: 24px;
+}
+.success-home-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #ff6600;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.success-home-btn:hover {
+    background: #e65c00;
+}
+@media (max-width: 600px) {
+    .success-page {
+        padding: 25px 12px;
+    }
+    .success-container {
+        padding: 25px 18px;
+    }
+    .success-container h1 {
+        font-size: 25px;
+    }
+    .success-row {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+    .success-row strong {
+        text-align: left;
+    }
+    .success-total {
+        gap: 10px;
+    }
+    .success-total strong {
+        font-size: 20px;
+    }
+}

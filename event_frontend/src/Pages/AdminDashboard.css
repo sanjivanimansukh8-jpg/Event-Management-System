@@ -1,0 +1,118 @@
+.admin-dashboard {
+    min-height: 100vh;
+    padding: 50px 7%;
+    background: #faf7f2;
+    color: #4f3b36;
+}
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+.admin-header h1 {
+    margin: 0;
+    font-size: 38px;
+    font-weight: 700;
+    color: #4f3b36;
+}
+.admin-header p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #6b5148;
+}
+.admin-header button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 7px;
+    background: #704f45;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.admin-header button:hover {
+    background: #563b34;
+}
+.admin-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+.admin-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #e4d8d2;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+}
+.admin-card h2 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #4f3b36;
+}
+.admin-card p {
+    margin: 0 0 25px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #6b5148;
+}
+.admin-card button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #704f45;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.admin-card button:hover {
+    background: #563b34;
+}
+@media (max-width: 900px) {
+    .admin-content {
+        grid-template-columns: 1fr;
+    }
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+@media (max-width: 500px) {
+    .admin-dashboard {
+        padding: 30px 20px;
+    }
+    .admin-header h1 {
+        font-size: 30px;
+    }
+    .admin-card {
+        padding: 22px;
+    }
+}
+.inquiry-admin-card {
+    border-top: 4px solid #8e44ad;
+}
+.inquiry-admin-card h2 {
+    color: #8e44ad;
+}
+.inquiry-admin-card p {
+    color: #555;
+}
+.inquiry-admin-card button {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.inquiry-admin-card button:hover {
+    background-color: #6c3483;
+    transform: translateY(-2px);
+}

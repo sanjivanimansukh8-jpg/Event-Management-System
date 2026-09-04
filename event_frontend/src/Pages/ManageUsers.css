@@ -1,0 +1,95 @@
+.manage-users-page {
+    min-height: 100vh;
+    padding: 40px 7%;
+    background: #faf7f3;
+}
+.manage-users-container {
+    max-width: 1100px;
+    margin: auto;
+}
+.users-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.users-header h1 {
+    color: #6b4f45;
+    margin-bottom: 8px;
+}
+.users-header p {
+    color: #81746e;
+}
+.back-btn {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #8b6f61;
+    color: white;
+    cursor: pointer;
+}
+.user-message {
+    padding: 12px;
+    margin-bottom: 20px;
+    background: #eee4dc;
+    color: #5f4b43;
+    border-radius: 7px;
+}
+.user-table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(80, 60, 50, 0.08);
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee5df;
+}
+th {
+    background: #f5eee9;
+    color: #5f4b43;
+}
+td {
+    color: #6b5b54;
+}
+.delete-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #c27c72;
+    color: white;
+    cursor: pointer;
+}
+.delete-btn:hover {
+    background: #a95f56;
+}
+.no-users {
+    background: white;
+    padding: 50px;
+    text-align: center;
+    border-radius: 12px;
+}
+.no-users h2 {
+    color: #6b4f45;
+}
+.no-users p {
+    color: #81746e;
+}
+
+@media (max-width: 700px) {
+    .users-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .user-table-container {
+        padding: 10px;
+    }
+}
