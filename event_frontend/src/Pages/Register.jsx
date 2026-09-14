@@ -72,7 +72,7 @@ function Register() {
 
     const handleSendOTP = async () => {
     console.log("SEND OTP CLICKED");
-
+    console.log("API URL:", import.meta.env.VITE_API_URL);
     setMessage("");
     setError("");
 

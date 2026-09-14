@@ -4,9 +4,12 @@ import com.example.navaratri_event.model.OTP;
 import com.example.navaratri_event.repository.OTPRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -18,10 +21,8 @@ public class OTPService {
     @Autowired
     OTPRepository otpRepository;
 
-    @Autowired
-    JavaMailSender mailSender;
+    private final HttpClient httpClient = HttpClient.newHttpClient();
 
-    // Generate 6 digit OTP
     public String generateOTP() {
         Random random = new Random();
         int number = 100000 + random.nextInt(900000);
@@ -29,87 +30,134 @@ public class OTPService {
     }
 
     public void sendOTP(String email) {
+
         otpRepository.deleteByEmail(email);
+
         String otpCode = generateOTP();
-        LocalDateTime expiryTime =
-                LocalDateTime.now().plusMinutes(5);
+        LocalDateTime expiryTime = LocalDateTime.now().plusMinutes(5);
 
-        OTP otp = new OTP(
-                email,
-                otpCode,
-                expiryTime
-        );
-
+        OTP otp = new OTP(email, otpCode, expiryTime);
         otpRepository.save(otp);
 
-        SimpleMailMessage message =
-                new SimpleMailMessage();
-        message.setTo(email);
-        message.setSubject(
-                "Navaratri Event Management - Email Verification OTP"
-        );
+        String apiKey = System.getenv("RESEND_API_KEY");
 
-        message.setText(
-                "Hello,\n\n"
-                + "Your OTP for email verification is: "
-                + otpCode
-                + "\n\n"
-                + "This OTP is valid for 5 minutes.\n\n"
-                + "Please do not share this OTP with anyone.\n\n"
-                + "Thank you,\n"
-                + "Navaratri Event Management"
-        );
-        mailSender.send(message);
+        if (apiKey == null || apiKey.isEmpty()) {
+            throw new RuntimeException("RESEND_API_KEY is not configured");
+        }
+
+        String jsonBody =
+                "{"
+                + "\"from\":\"onboarding@resend.dev\","
+                + "\"to\":[\"" + email + "\"],"
+                + "\"subject\":\"Navaratri Event Management - Email Verification OTP\","
+                + "\"text\":\"Hello,\\n\\n"
+                + "Your OTP for email verification is: " + otpCode
+                + "\\n\\nThis OTP is valid for 5 minutes."
+                + "\\n\\nPlease do not share this OTP with anyone."
+                + "\\n\\nThank you,\\nNavaratri Event Management\""
+                + "}";
+
+        try {
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://api.resend.com/emails"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + apiKey)
+                    .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
+                    .build();
+
+            HttpResponse<String> response =
+                    httpClient.send(
+                            request,
+                            HttpResponse.BodyHandlers.ofString()
+                    );
+
+            if (response.statusCode() < 200 ||
+                response.statusCode() >= 300) {
+
+                throw new RuntimeException(
+                        "Resend email failed: "
+                        + response.body()
+                );
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(
+                    "Failed to send OTP email",
+                    e
+            );
+        }
     }
-    
- // Send OTP for Admin Login
+
     public void sendAdminLoginOTP(String email) {
 
         otpRepository.deleteByEmail(email);
 
         String otpCode = generateOTP();
+        LocalDateTime expiryTime = LocalDateTime.now().plusMinutes(5);
 
-        LocalDateTime expiryTime =
-                LocalDateTime.now().plusMinutes(5);
-
-        OTP otp = new OTP(
-                email,
-                otpCode,
-                expiryTime
-        );
-
+        OTP otp = new OTP(email, otpCode, expiryTime);
         otpRepository.save(otp);
 
-        SimpleMailMessage message =
-                new SimpleMailMessage();
+        String apiKey = System.getenv("RESEND_API_KEY");
 
-        message.setTo(email);
+        if (apiKey == null || apiKey.isEmpty()) {
+            throw new RuntimeException("RESEND_API_KEY is not configured");
+        }
 
-        message.setSubject(
-                "EventHub - Admin Login OTP"
-        );
+        String jsonBody =
+                "{"
+                + "\"from\":\"onboarding@resend.dev\","
+                + "\"to\":[\"" + email + "\"],"
+                + "\"subject\":\"EventHub - Admin Login OTP\","
+                + "\"text\":\"Hello,\\n\\n"
+                + "Your OTP for Admin Login is: " + otpCode
+                + "\\n\\nThis OTP is valid for 5 minutes."
+                + "\\n\\nPlease do not share this OTP with anyone."
+                + "\\n\\nThank you,\\nEventHub\""
+                + "}";
 
-        message.setText(
-                "Hello,\n\n"
-                + "Your OTP for Admin Login is: "
-                + otpCode
-                + "\n\n"
-                + "This OTP is valid for 5 minutes.\n\n"
-                + "Please do not share this OTP with anyone.\n\n"
-                + "Thank you,\n"
-                + "EventHub"
-        );
+        try {
 
-        mailSender.send(message);
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://api.resend.com/emails"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + apiKey)
+                    .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
+                    .build();
+
+            HttpResponse<String> response =
+                    httpClient.send(
+                            request,
+                            HttpResponse.BodyHandlers.ofString()
+                    );
+
+            if (response.statusCode() < 200 ||
+                response.statusCode() >= 300) {
+
+                throw new RuntimeException(
+                        "Resend email failed: "
+                        + response.body()
+                );
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(
+                    "Failed to send admin OTP email",
+                    e
+            );
+        }
     }
-    
+
     public boolean verifyOTP(String email, String enteredOTP) {
+
         Optional<OTP> otpOptional =
                 otpRepository.findTopByEmailOrderByIDDesc(email);
 
         if (otpOptional.isEmpty()) {
             return false;
         }
+
         OTP otp = otpOptional.get();
 
         if (LocalDateTime.now().isAfter(otp.getExpiryTime())) {
@@ -121,6 +169,7 @@ public class OTPService {
             otpRepository.delete(otp);
             return true;
         }
+
         return false;
     }
 }
