@@ -9,7 +9,7 @@ function ManageUsers() {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch("http://localhost:8080/users");
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/users`);
             if (response.ok) {
                 const data = await response.json();
                 console.log("Users received:", data);
@@ -37,7 +37,7 @@ function ManageUsers() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/users/${id}`,
+                `${import.meta.env.VITE_API_URL}/users/${id}`,
                 {
                     method: "DELETE"
                 }

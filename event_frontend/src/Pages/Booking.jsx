@@ -52,8 +52,8 @@ function Booking() {
 
    useEffect(() => {
     Promise.all([
-        fetch("http://localhost:8080/events"),
-        fetch("http://localhost:8080/packages")
+        fetch(`${import.meta.env.VITE_API_URL}/events`),
+        fetch(`${import.meta.env.VITE_API_URL}/packages`)
     ])
         .then(async ([eventsResponse, packagesResponse]) => {
 

@@ -74,7 +74,7 @@ function CategoryEvents() {
         const decodedCategory = decodeURIComponent(category);
         setLoading(true);
         fetch(
-            `http://localhost:8080/events/category/${encodeURIComponent(
+            `${import.meta.env.VITE_API_URL}/events/category/${encodeURIComponent(
                 decodedCategory
             )}`
         )

@@ -4,16 +4,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f5f7fb;
+    background: #fff7ed;
     padding: 50px 20px;
 }
 
 .register-card {
     width: 420px;
     padding: 35px;
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .register-card h1 {
@@ -62,13 +62,14 @@
     color: #777;
     font-size: 12px;
 }
+
 .register-btn {
     width: 100%;
     padding: 13px;
     margin-top: 5px;
     border: none;
     border-radius: 8px;
-    background: #d97706;
+    background: #b45309;
     color: white;
     font-size: 16px;
     font-weight: 700;

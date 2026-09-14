@@ -19,7 +19,7 @@ function EventDetails() {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:8080/events/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/events/${id}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch event");

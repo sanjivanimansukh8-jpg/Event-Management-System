@@ -87,7 +87,7 @@ function MyBookings() {
         );
 
         fetch(
-            "http://localhost:8080/bookings"
+            `${import.meta.env.VITE_API_URL}/bookings`
         )
             .then((response) => {
 
@@ -170,7 +170,6 @@ function MyBookings() {
     }, []);
 
     const cancelBooking = (id) => {
-
         if (
             !window.confirm(
                 "Are you sure you want to cancel this booking?"
@@ -180,7 +179,7 @@ function MyBookings() {
         }
 
         fetch(
-            `http://localhost:8080/bookings/${id}`,
+            `${import.meta.env.VITE_API_URL}/bookings/${id}`,
             {
                 method: "DELETE"
             }

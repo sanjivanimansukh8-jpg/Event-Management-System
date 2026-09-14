@@ -7,7 +7,7 @@ function ManagePackages() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:8080/packages")
+        fetch(`${import.meta.env.VITE_API_URL}/packages`)
             .then(response => response.json())
             .then(data => {
                 setPackages(data);
@@ -26,7 +26,7 @@ function ManagePackages() {
         }
         try {
             const response = await fetch(
-                `http://localhost:8080/packages/${id}`,
+                `${import.meta.env.VITE_API_URL}/packages/${id}`,    
                 {
                     method: "DELETE"
                 }

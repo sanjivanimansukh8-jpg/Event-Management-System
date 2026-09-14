@@ -82,7 +82,7 @@ function Inquiry() {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/inquiries",
+                `${import.meta.env.VITE_API_URL}/inquiries`,
                 {
                     method: "POST",
                     headers: {
@@ -215,7 +215,7 @@ function Inquiry() {
                             </div>
 
                             <div className="form-group">
-                                <label>Emaillabel</label>
+                                <label>Email</label>
                                 <input
                                     type="email"
                                     value={

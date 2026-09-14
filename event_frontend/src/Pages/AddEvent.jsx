@@ -21,7 +21,7 @@ function AddEvent() {
         e.preventDefault();
         try {
             const response = await fetch(
-                "http://localhost:8080/events",
+                `${import.meta.env.VITE_API_URL}/events`,
                 {
                     method: "POST",
                     headers: {

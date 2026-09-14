@@ -16,7 +16,7 @@ function EditPackage() {
         const fetchPackage = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:8080/packages/${id}`
+                    `${import.meta.env.VITE_API_URL}/packages/${id}`,
                 );
                 if (response.ok) {
                     const data = await response.json();
@@ -48,7 +48,7 @@ function EditPackage() {
         e.preventDefault();
         try {
             const response = await fetch(
-                `http://localhost:8080/packages/${id}`,
+               `${import.meta.env.VITE_API_URL}/packages/${id}`,
                 {
                     method: "PUT",
                     headers: {

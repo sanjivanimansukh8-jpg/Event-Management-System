@@ -27,7 +27,7 @@ function EditEvent() {
         const fetchEvent = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:8080/events/${id}`
+                    `${import.meta.env.VITE_API_URL}/events/${id}`
                 );
 
                 if (response.ok) {
@@ -56,7 +56,7 @@ function EditEvent() {
         e.preventDefault();
         try {
             const response = await fetch(
-                `http://localhost:8080/events/${id}`,
+                `${import.meta.env.VITE_API_URL}/events/${id}`,
                 {
                     method: "PUT",
                     headers: {

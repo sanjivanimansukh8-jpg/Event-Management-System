@@ -6,7 +6,7 @@ function ViewEvents() {
     const [events, setEvents] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch("http://localhost:8080/events")
+        fetch(`${import.meta.env.VITE_API_URL}/events`)
             .then(response => response.json())
             .then(data => {
                 setEvents(data);
@@ -78,7 +78,7 @@ function ViewEvents() {
                                             )
                                         ) {
                                             fetch(
-                                                `http://localhost:8080/events/${event.id}`,
+                                                `${import.meta.env.VITE_API_URL}/events/${event.id}`,
                                                 {
                                                     method: "DELETE"
                                                 }

@@ -46,7 +46,7 @@ function Login() {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/users/login",
+                `${import.meta.env.VITE_API_URL}/users/login`,
                 {
                     method: "POST",
                     headers: {
@@ -150,7 +150,7 @@ function Login() {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/users/admin-login/verify-otp",
+                `${import.meta.env.VITE_API_URL}/users/admin-login/verify-otp`,
                 {
                     method: "POST",
                     headers: {

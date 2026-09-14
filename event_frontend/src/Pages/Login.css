@@ -1,17 +1,19 @@
+
 .login-page {
     min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px 20px;
+    background: #fff7ed;
 }
 
 .login-card {
     width: 420px;
     padding: 35px;
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .login-card h1 {
@@ -93,6 +95,8 @@
 .account-text a:hover {
     text-decoration: underline;
 }
+
 .login-message.error {
     color: #dc2626;
 }
+

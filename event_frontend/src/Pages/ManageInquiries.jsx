@@ -9,7 +9,7 @@ function ManageInquiries() {
     const fetchInquiries = async () => {
         try {
             const response = await fetch(
-                "http://localhost:8080/inquiries"
+                `${import.meta.env.VITE_API_URL}/inquiries`
             );
             if (!response.ok) {
                 throw new Error("Failed to fetch inquiries");
@@ -37,7 +37,7 @@ function ManageInquiries() {
         }
         try {
             const response = await fetch(
-                `http://localhost:8080/inquiries/${id}`,
+                `${import.meta.env.VITE_API_URL}/inquiries/${id}`,
                 {
                     method: "DELETE"
                 }
@@ -66,7 +66,7 @@ function ManageInquiries() {
                 : "Pending";
         try {
             const response = await fetch(
-                `http://localhost:8080/inquiries/${inquiry.id}`,
+                `${import.meta.env.VITE_API_URL}/inquiries/${inquiry.id}`,
                 {
                     method: "PUT",
                     headers: {

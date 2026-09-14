@@ -86,7 +86,7 @@ function Register() {
 
     try {
         const response = await fetch(
-            "http://localhost:8080/otp/send",
+            `${import.meta.env.VITE_API_URL}/otp/send`,
             {
                 method: "POST",
                 headers: {
@@ -139,7 +139,7 @@ function Register() {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/otp/verify",
+                `${import.meta.env.VITE_API_URL}/otp/verify`,
                 {
                     method: "POST",
                     headers: {
@@ -203,7 +203,7 @@ function Register() {
         setIsSubmitting(true);
         try {
             const response = await fetch(
-                "http://localhost:8080/users/register",
+                `${import.meta.env.VITE_API_URL}/users/register`,
                 {
                     method: "POST",
                     headers: {

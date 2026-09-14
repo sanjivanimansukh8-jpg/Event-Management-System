@@ -9,7 +9,7 @@ function ManageBookings() {
     const [message, setMessage] = useState("");
     const fetchBookings = async () => {
         try {
-            const response = await fetch("http://localhost:8080/bookings");
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings`);
             if (response.ok) {
                 const data = await response.json();
                 setBookings(data);
@@ -33,7 +33,7 @@ function ManageBookings() {
         }
         try {
             const response = await fetch(
-                `http://localhost:8080/bookings/${id}`,
+                `${import.meta.env.VITE_API_URL}/bookings/${id}`,
                 {
                     method: "DELETE"
                 }

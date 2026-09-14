@@ -31,10 +31,11 @@ function Payment() {
         );
     }
 
+    // SAVE PAYMENT
     const savePayment = async (paymentData) => {
         try {
             const response = await fetch(
-                "http://localhost:8080/api/payment/save",
+                `${import.meta.env.VITE_API_URL}/api/payment/save`,
                 {
                     method: "POST",
                     headers: {
@@ -70,6 +71,8 @@ function Payment() {
             return null;
         }
     };
+
+    // SAVE BOOKING
     const saveBooking = async ({
         paymentMethodName,
         paymentStatus,
@@ -78,7 +81,6 @@ function Payment() {
         razorpayPaymentId = null
     }) => {
         try {
-
             const bookingToSave = {
                 userName:
                     user?.userName ||
@@ -109,7 +111,6 @@ function Payment() {
                     bookingData.venue ||
                     "",
 
-                // PACKAGE DETAILS
                 packageName:
                     bookingData.package?.packageName ||
                     "",
@@ -151,7 +152,7 @@ function Payment() {
             );
 
             const response = await fetch(
-                "http://localhost:8080/bookings",
+                `${import.meta.env.VITE_API_URL}/bookings`,
                 {
                     method: "POST",
 
@@ -167,7 +168,6 @@ function Payment() {
             );
 
             if (!response.ok) {
-
                 const errorText =
                     await response.text();
 
@@ -192,7 +192,6 @@ function Payment() {
             return savedBooking;
 
         } catch (error) {
-
             console.error(
                 "Booking save error:",
                 error
@@ -206,10 +205,9 @@ function Payment() {
         }
     };
 
+    // HANDLE PAYMENT
     const handlePayment = async () => {
-
         if (!paymentMethod) {
-
             alert(
                 "Please select a payment method."
             );
@@ -217,10 +215,11 @@ function Payment() {
             return;
         }
 
+        // =========================
+        // CASH ON DELIVERY
+        // =========================
         if (paymentMethod === "COD") {
-
             const paymentData = {
-
                 amount:
                     Number(
                         bookingData.totalAmount || 0
@@ -275,7 +274,6 @@ function Payment() {
 
             const savedBooking =
                 await saveBooking({
-
                     paymentMethodName:
                         "Cash on Delivery",
 
@@ -298,7 +296,6 @@ function Payment() {
                 "/booking-success",
                 {
                     state: {
-
                         ...bookingData,
 
                         paymentMethod:
@@ -319,18 +316,20 @@ function Payment() {
             return;
         }
 
+        // =========================
+        // RAZORPAY
+        // =========================
         if (paymentMethod === "RAZORPAY") {
-
             try {
-
                 const amount =
                     Number(
                         bookingData.totalAmount || 0
                     );
 
+                // CREATE RAZORPAY ORDER
                 const response =
                     await fetch(
-                        "http://localhost:8080/api/payment/create-order",
+                        `${import.meta.env.VITE_API_URL}/api/payment/create-order`,
                         {
                             method: "POST",
 
@@ -346,7 +345,6 @@ function Payment() {
                     );
 
                 if (!response.ok) {
-
                     throw new Error(
                         "Failed to create Razorpay order"
                     );
@@ -360,8 +358,8 @@ function Payment() {
                     order
                 );
 
+                // RAZORPAY OPTIONS
                 const options = {
-
                     key:
                         "rzp_test_TT9jHJjUCkdeQJ",
 
@@ -386,14 +384,12 @@ function Payment() {
                         async function (
                             paymentResponse
                         ) {
-
                             console.log(
                                 "Payment successful:",
                                 paymentResponse
                             );
 
                             const paymentData = {
-
                                 amount:
                                     Number(
                                         bookingData.totalAmount ||
@@ -444,6 +440,7 @@ function Payment() {
                                         .razorpay_payment_id
                             };
 
+                            // SAVE PAYMENT
                             const savedPayment =
                                 await savePayment(
                                     paymentData
@@ -453,9 +450,9 @@ function Payment() {
                                 return;
                             }
 
+                            // SAVE BOOKING
                             const savedBooking =
                                 await saveBooking({
-
                                     paymentMethodName:
                                         "Razorpay",
 
@@ -478,14 +475,11 @@ function Payment() {
                                 return;
                             }
 
-                            /*
-                             * GO TO SUCCESS PAGE
-                             */
+                            // GO TO SUCCESS PAGE
                             navigate(
                                 "/booking-success",
                                 {
                                     state: {
-
                                         ...bookingData,
 
                                         paymentMethod:
@@ -513,7 +507,6 @@ function Payment() {
                         },
 
                     prefill: {
-
                         name:
                             user?.userName ||
                             user?.name ||
@@ -534,11 +527,8 @@ function Payment() {
                     }
                 };
 
-                /*
-                 * CHECK RAZORPAY
-                 */
+                // CHECK RAZORPAY
                 if (!window.Razorpay) {
-
                     alert(
                         "Razorpay Checkout is not loaded. Please refresh the page and try again."
                     );
@@ -546,9 +536,7 @@ function Payment() {
                     return;
                 }
 
-                /*
-                 * OPEN RAZORPAY
-                 */
+                // OPEN RAZORPAY
                 const razorpay =
                     new window.Razorpay(
                         options
@@ -557,7 +545,6 @@ function Payment() {
                 razorpay.open();
 
             } catch (error) {
-
                 console.error(
                     "Payment Error:",
                     error
@@ -741,7 +728,6 @@ function Payment() {
                     className="payment-btn"
                     onClick={handlePayment}
                 >
-
                     {paymentMethod ===
                     "RAZORPAY"
                         ? "Proceed to Online Payment"
@@ -749,7 +735,6 @@ function Payment() {
                           "COD"
                         ? "Confirm Booking"
                         : "Select Payment Method"}
-
                 </button>
 
             </div>

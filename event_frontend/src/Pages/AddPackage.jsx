@@ -24,7 +24,9 @@ function AddPackage() {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:8080/packages", {
+           const response = await fetch(
+            `${import.meta.env.VITE_API_URL}/packagess`, 
+            {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

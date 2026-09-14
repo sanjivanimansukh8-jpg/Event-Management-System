@@ -7,7 +7,7 @@ function ManagePayments() {
     const [payments, setPayments] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch("http://localhost:8080/api/payment")
+        fetch(`${import.meta.env.VITE_API_URL}/api/payment`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(

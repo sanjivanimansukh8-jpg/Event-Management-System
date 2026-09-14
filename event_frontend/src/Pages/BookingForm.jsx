@@ -51,7 +51,7 @@ function BookingForm() {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/bookings",
+                `${import.meta.env.VITE_API_URL}/bookings`,
                 {
                     method: "POST",
                     headers: {

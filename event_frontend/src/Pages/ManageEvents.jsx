@@ -9,7 +9,7 @@ function ManageEvents() {
 
     const fetchEvents=async()=>{
         try{
-            const response=await fetch("http://localhost:8080/events");
+            const response=await fetch(`${import.meta.env.VITE_API_URL}/events`);
             if (!response.ok) {
                 throw new Error("Failed to fetch events");
             }
@@ -34,7 +34,7 @@ function ManageEvents() {
         }
         try{
             const response=await fetch(
-                `http://localhost:8080/events/${id}`,
+                `${import.meta.env.VITE_API_URL}/events/${id}`,
                 {
                     method:"DELETE",
                 }
