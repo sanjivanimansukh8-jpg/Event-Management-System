@@ -10,7 +10,6 @@ import com.example.navaratri_event.model.Venue;
 import com.example.navaratri_event.service.VenueService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
 public class VenueController {
 
     @Autowired

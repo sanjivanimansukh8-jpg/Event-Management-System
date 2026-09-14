@@ -18,7 +18,10 @@ public class CorsConfig {
                 new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-                List.of("http://localhost:5173")
+                List.of(
+                    "http://localhost:5173",
+                    "https://event-management-system-mu.vercel.app"
+                )
         );
 
         configuration.setAllowedMethods(

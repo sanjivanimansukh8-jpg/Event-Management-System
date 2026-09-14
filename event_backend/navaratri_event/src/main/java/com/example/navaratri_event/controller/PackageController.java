@@ -11,7 +11,6 @@ import com.example.navaratri_event.service.PackageService;
 
 @RestController
 @RequestMapping("/packages")
-@CrossOrigin(origins = "http://localhost:5173")
 public class PackageController {
 
     @Autowired
