@@ -10,7 +10,7 @@
   position: relative;
   z-index: 1000;
   border-bottom: 1px solid #eeeeee;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 .navbar-logo a {
   text-decoration: none;

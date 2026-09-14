@@ -1,114 +1,59 @@
+
 .register-page {
     min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #f5f7fb;
     padding: 50px 20px;
 }
 
 .register-card {
     width: 420px;
-    padding: 35px 40px;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(217, 119, 6, 0.18);
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 .register-card h1 {
     text-align: center;
     margin-bottom: 8px;
-    color: #333333;
+    color: #222;
     font-size: 30px;
     font-weight: 700;
 }
 
 .register-subtitle {
     text-align: center;
-    color: #777777;
+    color: #555;
     margin-bottom: 28px;
 }
 
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 7px;
-    color: #444444;
+    color: #333;
     font-weight: 600;
 }
 
-.form-group input{
+.form-group input {
     width: 100%;
     box-sizing: border-box;
     padding: 12px 14px;
-    background: #fffaf5;
-    border: 1px solid #dddddd;
+    border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 15px;
-    color: #333333;
     outline: none;
-    transition: 0.2s;
 }
 
 .form-group input:focus {
     border-color: #d97706;
-    background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.10);
-}
-
-.register-btn {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 8px;
-    background: #d97706;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: 0.2s;
-}
-
-.register-btn:hover {
-    background: #b45309;
-}
-
-.register-message {
-    text-align: center;
-    color: #15803d;
-    font-weight: 600;
-    margin-top: 15px;
-}
-
-.account-text {
-    text-align: center;
-    margin-top: 24px;
-    color: #666666;
-}
-
-.account-text a {
-    color: #b45309;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.account-text a:hover {
-    text-decoration: underline;
-}
-.register-message.success {
-    color: green;
-    margin-top: 15px;
-    font-weight: 600;
-}
-
-.register-message.error {
-    color: red;
-    margin-top: 15px;
-    font-weight: 600;
+    box-shadow: 0 0 5px rgba(217, 119, 6, 0.25);
 }
 
 .form-group small {
@@ -116,4 +61,87 @@
     margin-top: 5px;
     color: #777;
     font-size: 12px;
+}
+.register-btn {
+    width: 100%;
+    padding: 13px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background: #d97706;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: #b45309;
+}
+
+.register-btn:disabled {
+    background: #d97706;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* OTP input */
+
+.form-group input[placeholder="Enter 6-digit OTP"] {
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Messages */
+
+.register-message {
+    text-align: center;
+    margin-top: 18px;
+    padding: 10px;
+    border-radius: 7px;
+    font-weight: 500;
+}
+
+.register-message.success {
+    background: #e8f8ee;
+    color: #218838;
+}
+
+.register-message.error {
+    background: #fdeaea;
+    color: #d93025;
+}
+
+/* Login link */
+
+.account-text {
+    text-align: center;
+    margin-top: 25px;
+    color: #444;
+}
+
+.account-text a {
+    color: #b45309;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.account-text a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+    .register-card {
+        padding: 25px 20px;
+    }
+
+    .register-card h1 {
+        font-size: 26px;
+    }
 }

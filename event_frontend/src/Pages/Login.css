@@ -93,3 +93,6 @@
 .account-text a:hover {
     text-decoration: underline;
 }
+.login-message.error {
+    color: #dc2626;
+}
