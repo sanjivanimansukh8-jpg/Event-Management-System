@@ -28,6 +28,11 @@ public class EventController {
 		return eservice.getAllEvents();
 	}
 	
+	@GetMapping("/test")
+	public String test() {
+	    return "Event Controller is working";
+	}
+	
 	// Get events by category
 	@GetMapping("/events/category/{category}")
 	public List<Event> getEventsByCategory(@PathVariable String category) {
