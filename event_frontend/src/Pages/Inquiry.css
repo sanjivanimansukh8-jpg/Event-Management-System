@@ -1,11 +1,14 @@
+
 .inquiry-page {
     min-height: 100vh;
-    padding: 50px 20px;
-    background: #f5f7fb;
+    background: #f5f6fa;
+    padding: 40px 20px;
+    box-sizing: border-box;
 }
+
 .inquiry-container {
     width: 100%;
-    max-width: 850px;
+    max-width: 900px;
     margin: 0 auto;
     background: #ffffff;
     border-radius: 18px;
@@ -13,136 +16,282 @@
     box-sizing: border-box;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
+
 .inquiry-header {
     text-align: center;
     margin-bottom: 30px;
 }
+
 .inquiry-header h1 {
     margin: 0 0 10px;
-    color: #2d3436;
+    color: #222222;
     font-size: 32px;
+    font-weight: 700;
 }
+
 .inquiry-header p {
-    margin: 0;
-    color: #636e72;
+    margin: 0 auto;
+    max-width: 650px;
+    color: #666666;
     font-size: 15px;
     line-height: 1.6;
 }
+
 .selected-event {
-    background: #f1efff;
-    border-left: 5px solid #6c5ce7;
-    border-radius: 10px;
-    padding: 18px 20px;
+    background: #f8f4f4;
+    border: 1px solid #e0cccc;
+    border-radius: 12px;
+    padding: 20px;
     margin-bottom: 30px;
 }
+
 .selected-event h2 {
-    margin: 0 0 10px;
-    color: #5145b5;
+    margin: 0 0 12px;
+    color: #800000;
     font-size: 22px;
+    font-weight: 700;
 }
+
 .event-info {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    color: #555;
+    color: #555555;
     font-size: 14px;
 }
+
+.event-info span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.inquiry-form {
+    width: 100%;
+}
+
 .form-section {
     margin-bottom: 30px;
 }
+
 .form-section h3 {
-    margin: 0 0 6px;
-    color: #2d3436;
-    font-size: 20px;
+    margin: 0 0 8px;
+    color: #222222;
+    font-size: 21px;
+    font-weight: 700;
 }
+
 .section-info {
     margin: 0 0 20px;
-    color: #777;
-    font-size: 13px;
+    color: #777777;
+    font-size: 14px;
 }
+
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
 .form-group {
     margin-bottom: 20px;
 }
+
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: #333;
-    font-size: 14px;
+    color: #222222;
+    font-size: 15px;
     font-weight: 600;
 }
+
 .form-group input,
 .form-group textarea {
     width: 100%;
     box-sizing: border-box;
-    padding: 12px 14px;
     border: 1px solid #d8dce5;
     border-radius: 8px;
     background: #ffffff;
-    color: #222;
-    font-size: 15px;
+    color: #333333;
     font-family: inherit;
+    font-size: 15px;
     outline: none;
-    transition: 0.2s;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
 }
+
 .form-group input {
     height: 46px;
+    padding: 0 14px;
 }
+
 .form-group textarea {
-    resize: vertical;
     min-height: 130px;
+    padding: 14px;
+    resize: vertical;
 }
+
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #6c5ce7;
-    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.10);
+    border-color: #800000;
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.10);
 }
+
 .form-group input[readonly] {
-    background: #f1f3f6;
-    color: #555;
-    cursor: not-allowed;
+    background: #f5f6f8;
+    color: #555555;
+    cursor: default;
 }
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999999;
+}
+
+.inquiry-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
 .inquiry-btn {
-    width: 100%;
-    height: 48px;
-    border: none;
-    border-radius: 9px;
-    background: #6c5ce7;
+    min-width: 180px;
+    padding: 14px 25px;
+    background-color: #800000;
     color: #ffffff;
+    border: 1px solid #800000;
+    border-radius: 8px;
+    font-family: inherit;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background-color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.2s ease;
 }
+
 .inquiry-btn:hover {
-    background: #5848d0;
+    background-color: #660000;
+    border-color: #660000;
     transform: translateY(-1px);
 }
+
+.inquiry-btn:active {
+    transform: translateY(0);
+}
+
 .inquiry-btn:disabled {
-    opacity: 0.6;
+    background-color: #a66a6a;
+    border-color: #a66a6a;
     cursor: not-allowed;
     transform: none;
 }
-@media (max-width: 700px) {
+
+.cancel-inquiry-btn {
+    min-width: 120px;
+    padding: 14px 25px;
+    background-color: #800000;
+    color: #ffffff;
+    border: 1px solid #800000;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.2s ease;
+}
+
+.cancel-inquiry-btn:hover {
+    background-color: #660000;
+    border-color: #660000;
+    transform: translateY(-1px);
+}
+
+.cancel-inquiry-btn:active {
+    transform: translateY(0);
+}
+
+.inquiry-container .inquiry-btn {
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
     .inquiry-page {
-        padding: 30px 15px;
+        padding: 25px 15px;
     }
+
     .inquiry-container {
-        padding: 25px 18px;
+        padding: 25px 20px;
+        border-radius: 14px;
     }
+
     .inquiry-header h1 {
         font-size: 27px;
     }
+
     .form-row {
         grid-template-columns: 1fr;
         gap: 0;
     }
+
     .event-info {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
+    }
+
+    .inquiry-buttons {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .inquiry-btn,
+    .cancel-inquiry-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .inquiry-page {
+        padding: 15px 10px;
+    }
+
+    .inquiry-container {
+        padding: 20px 15px;
+    }
+
+    .inquiry-header h1 {
+        font-size: 24px;
+    }
+
+    .inquiry-header p {
+        font-size: 14px;
+    }
+
+    .selected-event {
+        padding: 15px;
+    }
+
+    .selected-event h2 {
+        font-size: 19px;
+    }
+
+    .form-section h3 {
+        font-size: 19px;
+    }
+
+    .form-group input {
+        height: 44px;
+    }
+
+    .inquiry-btn,
+    .cancel-inquiry-btn {
+        padding: 13px 20px;
+        font-size: 15px;
     }
 }
